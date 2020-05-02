@@ -16,7 +16,11 @@ class MovieListInteractor: PresenterToInteractorMovieListProtocol {
     func invokePopularMovieListAPI(serviceType: ServiceType) {
         IMNetworkManager.shared.dataManager.fetchMovieDataForType(serviceType:
             serviceType) { (movieList, errorMsg) in
-            self.presenter?.popularMovieListAPIInvokeSuccess(movieList: movieList)
+            if errorMsg == nil {
+                self.presenter?.popularMovieListAPIInvokeSuccess(movieList: movieList)
+            } else {
+                self.presenter?.popularMovieListAPIInvokeFailed(errorMsg: errorMsg)
+            }
         }
     }
     
@@ -25,7 +29,11 @@ class MovieListInteractor: PresenterToInteractorMovieListProtocol {
     func invokeTopRatedMovieListAPI(serviceType: ServiceType) {
         IMNetworkManager.shared.dataManager.fetchMovieDataForType(serviceType:
             serviceType) { (movieList, errorMsg) in
-            self.presenter?.topRatedMovieListAPIInvokeSuccess(movieList: movieList)
+            if errorMsg == nil {
+                self.presenter?.topRatedMovieListAPIInvokeSuccess(movieList: movieList)
+            } else {
+                self.presenter?.topRatedMovieListAPIInvokeFailed(errorMsg: errorMsg)
+            }
         }
     }
     
@@ -34,7 +42,11 @@ class MovieListInteractor: PresenterToInteractorMovieListProtocol {
     func invokeUpcomingMovieListAPI(serviceType: ServiceType) {
         IMNetworkManager.shared.dataManager.fetchMovieDataForType(serviceType:
             serviceType) { (movieList, errorMsg) in
-            self.presenter?.upcomingMovieListAPIInvokeSuccess(movieList: movieList)
+            if errorMsg == nil {
+                self.presenter?.upcomingMovieListAPIInvokeSuccess(movieList: movieList)
+            } else {
+                self.presenter?.upcomingMovieListAPIInvokeFailed(errorMsg: errorMsg)
+            }
         }
     }
     

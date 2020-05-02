@@ -54,7 +54,9 @@ class MovieDetailViewController: BaseViewController {
             if let title = movie.title {
                  self.titleTxtView.text = "\(title)"
             }
-            self.releaseLbl.text = "Released On : \(movie.year)"
+            if let releaseYear = movie.year {
+                self.releaseLbl.text = "Released On : \(releaseYear)"
+            }
             if let imageData = movie.posterImgData {
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.isHidden = true

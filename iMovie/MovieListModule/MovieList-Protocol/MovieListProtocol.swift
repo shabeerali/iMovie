@@ -33,9 +33,9 @@ protocol PresenterToViewMovieListProtocol: class {
     func popularMovieListFetchSuccess(movieList: [Movie]?)
     func topRatedMovieListFetchSuccess(movieList: [Movie]?)
     func upcomingMovieListFetchSuccess(movieList: [Movie]?)
-    func popularMovieListFetchFailed(error: [String : Any]?)
-    func topRatedMovieListFetchFailed(error: [String : Any]?)
-    func upcomingMovieListFetchFailed(error: [String : Any]?)
+    func popularMovieListFetchFailed(errorMsg: String?)
+    func topRatedMovieListFetchFailed(errorMsg: String?)
+    func upcomingMovieListFetchFailed(errorMsg: String?)
 }
 // MARK: PresenterToInteractor - To communicate between presenter & interactor
 protocol PresenterToInteractorMovieListProtocol: class {
@@ -54,7 +54,7 @@ protocol InteractorToPresenterMovieListProtocol: class {
     func popularMovieListAPIInvokeSuccess(movieList: [Movie]?)
     func topRatedMovieListAPIInvokeSuccess(movieList: [Movie]?)
     func upcomingMovieListAPIInvokeSuccess(movieList: [Movie]?)
-    func popularMovieListAPIInvokeFailed(error: [String : Any]?)
-    func topRatedMovieListAPIInvokeFailed(error: [String : Any]?)
-    func upcomingMovieListAPIInvokeFailed(error: [String : Any]?)
+    func popularMovieListAPIInvokeFailed(errorMsg: String?)
+    func topRatedMovieListAPIInvokeFailed(errorMsg: String?)
+    func upcomingMovieListAPIInvokeFailed(errorMsg: String?)
 }

@@ -21,6 +21,6 @@ extension StoredMovie {
     @NSManaged public var movieType: String?
     @NSManaged public var poster: String?
     @NSManaged public var title: String?
-    @NSManaged public var year: Int32
+    @NSManaged public var year: String?
     @NSManaged public var posterImage: Data?
 }

@@ -41,8 +41,29 @@
                                     <outlet property="delegate" destination="KGk-i7-Jjw" id="eJE-My-Sfc"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahk-aq-Rqg">
+                                <rect key="frame" x="7" y="0.0" width="304" height="182"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="278-Ah-Z1c">
+                                        <rect key="frame" x="8" y="77" width="288" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="WUq-rk-Xv3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstItem="278-Ah-Z1c" firstAttribute="leading" secondItem="ahk-aq-Rqg" secondAttribute="leading" constant="8" id="91M-lW-fPa"/>
+                                    <constraint firstItem="278-Ah-Z1c" firstAttribute="centerX" secondItem="ahk-aq-Rqg" secondAttribute="centerX" id="NN4-T0-Ms8"/>
+                                    <constraint firstAttribute="trailing" secondItem="278-Ah-Z1c" secondAttribute="trailing" constant="8" id="VLq-GE-7Sv"/>
+                                    <constraint firstItem="278-Ah-Z1c" firstAttribute="centerY" secondItem="ahk-aq-Rqg" secondAttribute="centerY" constant="-3.5" id="WJf-5D-No6"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G31-yv-4jc">
-                                <rect key="frame" x="7" y="0.0" width="304" height="175"/>
+                                <rect key="frame" x="7" y="0.0" width="304" height="181"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rwB-9X-OT2">
                                         <rect key="frame" x="133.5" y="71" width="37" height="37"/>
@@ -53,16 +74,20 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstItem="rwB-9X-OT2" firstAttribute="centerX" secondItem="G31-yv-4jc" secondAttribute="centerX" id="KVt-Y9-pvO"/>
-                                    <constraint firstItem="rwB-9X-OT2" firstAttribute="centerY" secondItem="G31-yv-4jc" secondAttribute="centerY" constant="2" id="ek8-Zp-umQ"/>
+                                    <constraint firstItem="rwB-9X-OT2" firstAttribute="centerY" secondItem="G31-yv-4jc" secondAttribute="centerY" constant="-1" id="ek8-Zp-umQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nhi-F0-h4D" secondAttribute="trailing" constant="8" id="Frs-4C-qll"/>
+                            <constraint firstAttribute="bottom" secondItem="ahk-aq-Rqg" secondAttribute="bottom" constant="7" id="TtO-hl-w7U"/>
+                            <constraint firstAttribute="trailing" secondItem="ahk-aq-Rqg" secondAttribute="trailing" constant="8" id="Xca-g2-BZn"/>
                             <constraint firstAttribute="bottom" secondItem="nhi-F0-h4D" secondAttribute="bottom" constant="14" id="Ymd-Um-eaY"/>
                             <constraint firstItem="G31-yv-4jc" firstAttribute="top" secondItem="ULV-5z-vpo" secondAttribute="top" id="cWz-B4-jeV"/>
-                            <constraint firstAttribute="bottom" secondItem="G31-yv-4jc" secondAttribute="bottom" constant="14" id="dFn-4u-CSJ"/>
+                            <constraint firstAttribute="bottom" secondItem="G31-yv-4jc" secondAttribute="bottom" constant="8" id="dFn-4u-CSJ"/>
+                            <constraint firstItem="ahk-aq-Rqg" firstAttribute="top" secondItem="ULV-5z-vpo" secondAttribute="top" id="h2O-WH-x86"/>
+                            <constraint firstItem="ahk-aq-Rqg" firstAttribute="leading" secondItem="ULV-5z-vpo" secondAttribute="leading" constant="7" id="iXu-LZ-pcd"/>
                             <constraint firstItem="G31-yv-4jc" firstAttribute="leading" secondItem="ULV-5z-vpo" secondAttribute="leading" constant="7" id="jZy-lb-cuV"/>
                             <constraint firstAttribute="trailing" secondItem="G31-yv-4jc" secondAttribute="trailing" constant="8" id="maF-dL-70D"/>
                             <constraint firstItem="nhi-F0-h4D" firstAttribute="top" secondItem="ULV-5z-vpo" secondAttribute="top" id="ugc-Y5-qdU"/>
@@ -84,6 +109,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="activityIndicatorView" destination="G31-yv-4jc" id="bxq-gT-v9o"/>
+                <outlet property="errorMsgLbl" destination="278-Ah-Z1c" id="CAf-Gm-6Wg"/>
+                <outlet property="errorMsgView" destination="ahk-aq-Rqg" id="DQy-kw-gqs"/>
                 <outlet property="labelCategory" destination="7FF-Ma-CL6" id="jIJ-Kd-Vt0"/>
                 <outlet property="movieCollectionVIew" destination="nhi-F0-h4D" id="j0i-z9-oWW"/>
             </connections>

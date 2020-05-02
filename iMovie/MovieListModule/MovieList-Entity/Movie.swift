@@ -12,7 +12,7 @@ import CoreData
 
 public class Movie: MovieParserProtocol {
     public var title: String?
-    public var year: Int32 = 0
+    public var year: String?
     public var poster: String?
     public var movieId: String?
     public var movieType: String?
@@ -33,7 +33,7 @@ public class Movie: MovieParserProtocol {
     /// - Parameter data: data in JSON format
     func parseData(_ data: [String: Any], _ movieType: String) {
         self.title = data[CodingKeys.title.rawValue] as? String
-        self.year = data[CodingKeys.year.rawValue] as? Int32 ?? 1900
+        self.year = data[CodingKeys.year.rawValue] as? String
         self.movieType = movieType
         self.poster = data[CodingKeys.poster.rawValue] as? String
         self.movieId = data[CodingKeys.movieId.rawValue] as? String

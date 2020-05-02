@@ -49,14 +49,20 @@ extension MovieListPresenter: InteractorToPresenterMovieListProtocol {
             self.view?.upcomingMovieListFetchSuccess(movieList: movieList)
         }
     }
-    func popularMovieListAPIInvokeFailed(error: [String : Any]?) {
-        
+    func popularMovieListAPIInvokeFailed(errorMsg: String?) {
+        DispatchQueue.main.async {
+            self.view?.popularMovieListFetchFailed(errorMsg: errorMsg)
+        }
     }
-    func topRatedMovieListAPIInvokeFailed(error: [String : Any]?) {
-        
+    func topRatedMovieListAPIInvokeFailed(errorMsg: String?) {
+        DispatchQueue.main.async {
+            self.view?.topRatedMovieListFetchFailed(errorMsg: errorMsg)
+        }
     }
-    func upcomingMovieListAPIInvokeFailed(error: [String : Any]?) {
-    
+    func upcomingMovieListAPIInvokeFailed(errorMsg: String?) {
+        DispatchQueue.main.async {
+            self.view?.upcomingMovieListFetchFailed(errorMsg: errorMsg)
+        }
     }
 }
 

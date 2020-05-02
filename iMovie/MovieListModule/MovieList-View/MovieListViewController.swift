@@ -21,6 +21,10 @@ class MovieListViewController: UIViewController {
     /// Upcoming movies list
     var upcomingMovies : [Movie]?
     
+    var errorMsgPopular: String?
+    var errorMsgTopRated: String?
+    var errorMsgUpcoming: String?
+    
     
     @IBOutlet weak var movieTableView: UITableView!
     
@@ -44,6 +48,7 @@ extension MovieListViewController: PresenterToViewMovieListProtocol {
     /// - Parameter movieList: movieList
     func popularMovieListFetchSuccess(movieList: [Movie]?) {
         self.popularMovies = movieList
+        self.errorMsgPopular = nil
         self.movieTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.none)
     }
     
@@ -51,6 +56,7 @@ extension MovieListViewController: PresenterToViewMovieListProtocol {
     /// - Parameter movieList: movieList
     func topRatedMovieListFetchSuccess(movieList: [Movie]?) {
         self.topRatedMovies = movieList
+        self.errorMsgTopRated = nil
         self.movieTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: UITableView.RowAnimation.none)
        
     }
@@ -59,19 +65,32 @@ extension MovieListViewController: PresenterToViewMovieListProtocol {
     /// - Parameter movieList: movieList
     func upcomingMovieListFetchSuccess(movieList: [Movie]?) {
         self.upcomingMovies = movieList
+        self.errorMsgUpcoming = nil
         self.movieTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: UITableView.RowAnimation.none)
     }
     
-    func popularMovieListFetchFailed(error: [String : Any]?) {
-        
+    /// This method invoked when Popular  movies fetching failed
+    /// - Parameter errorMsg: error message
+    func popularMovieListFetchFailed(errorMsg: String?) {
+        self.popularMovies = nil
+        self.errorMsgPopular = errorMsg
+        self.movieTableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.none)
     }
     
-    func topRatedMovieListFetchFailed(error: [String : Any]?) {
-        
+    /// This method invoked when Top Rated movies fetching failed
+    /// - Parameter error: error message
+    func topRatedMovieListFetchFailed(errorMsg: String?) {
+        self.topRatedMovies = nil
+        self.errorMsgTopRated = errorMsg
+        self.movieTableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: UITableView.RowAnimation.none)
     }
     
-    func upcomingMovieListFetchFailed(error: [String : Any]?) {
-        
+    /// This method invoked when Upcoming movies fetching failed
+    /// - Parameter errorMsg: error message
+    func upcomingMovieListFetchFailed(errorMsg: String?) {
+        self.upcomingMovies = nil
+        self.errorMsgUpcoming = errorMsg
+        self.movieTableView.reloadRows(at: [IndexPath(row: 2, section: 0)], with: UITableView.RowAnimation.none)
     }
 }
 
@@ -86,7 +105,8 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
         if(indexPath.row == 0) {
             cell.labelCategory.text = ServiceType.popular.rawValue
             cell.movieList = self.popularMovies
-            if cell.movieList == nil {
+            cell.errorMsg = self.errorMsgPopular
+            if cell.movieList == nil && cell.errorMsg == nil {
                 cell.activityIndicatorView.isHidden = false
                 self.presenter?.fetchPopularMovieList(serviceType: .popular)
             } else {
@@ -96,7 +116,8 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
            
             cell.labelCategory.text = ServiceType.topRated.rawValue
             cell.movieList = self.topRatedMovies
-            if cell.movieList == nil {
+            cell.errorMsg = self.errorMsgTopRated
+            if cell.movieList == nil && cell.errorMsg == nil {
                 cell.activityIndicatorView.isHidden = false
                 self.presenter?.fetchTopRatedMovieList(serviceType: .topRated)
             } else {
@@ -105,7 +126,8 @@ extension MovieListViewController : UITableViewDelegate, UITableViewDataSource {
         } else if(indexPath.row == 2) {
             cell.labelCategory.text = ServiceType.upcoming.rawValue
             cell.movieList = self.upcomingMovies
-            if cell.movieList == nil {
+            cell.errorMsg = self.errorMsgUpcoming
+            if cell.movieList == nil && cell.errorMsg == nil {
                 cell.activityIndicatorView.isHidden = false
                 self.presenter?.fetchUpcomingMovieList(serviceType: .upcoming)
             } else {

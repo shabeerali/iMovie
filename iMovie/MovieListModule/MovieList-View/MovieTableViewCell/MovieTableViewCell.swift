@@ -18,7 +18,8 @@ protocol MovieTableCellDelegate: class {
 }
 class MovieTableViewCell: UITableViewCell,UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var heroImage: UIImageView!
+    @IBOutlet weak var errorMsgLbl: UILabel!
+    @IBOutlet weak var errorMsgView: UIView!
     @IBOutlet weak var movieCollectionVIew: UICollectionView!
     @IBOutlet weak var labelCategory: UILabel!
     @IBOutlet weak var activityIndicatorView: UIView!
@@ -28,6 +29,7 @@ class MovieTableViewCell: UITableViewCell,UICollectionViewDelegate, UICollection
     
     /// a list of movies of particular type
     var movieList : [Movie]?
+    var errorMsg: String?
     
     
     
@@ -50,9 +52,18 @@ class MovieTableViewCell: UITableViewCell,UICollectionViewDelegate, UICollection
     /// This pouplates UI wirh movie list
     /// - Parameter movieList: movieList 
     func populateWithData(movieList:[Movie]?) {
-        self.activityIndicatorView.isHidden = true
-        self.movieCollectionVIew.isHidden = false
-        self.movieCollectionVIew.reloadData()
+        if let errorMsg = self.errorMsg {
+            self.errorMsgLbl.text = errorMsg
+            self.activityIndicatorView.isHidden = true
+            self.movieCollectionVIew.isHidden = true
+            self.errorMsgView.isHidden = false
+            
+        } else {
+            self.activityIndicatorView.isHidden = true
+            self.errorMsgView.isHidden = true
+            self.movieCollectionVIew.isHidden = false
+            self.movieCollectionVIew.reloadData()
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
