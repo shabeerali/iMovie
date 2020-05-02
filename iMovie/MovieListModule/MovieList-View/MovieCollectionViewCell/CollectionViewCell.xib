@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCellIdentifier" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="iMovie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="130" height="196"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="130" height="196"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FcP-tL-7DP">
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="196"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="NlC-yc-wiO">
+                        <rect key="frame" x="32.5" y="65.5" width="65" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="MmM-kg-5j5"/>
+                            <constraint firstAttribute="width" constant="65" id="XaH-NJ-gYr"/>
+                        </constraints>
+                    </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LTW-5Q-NGL">
+                        <rect key="frame" x="55" y="88" width="20" height="20"/>
+                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="FcP-tL-7DP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1ja-pH-K8q"/>
+                <constraint firstItem="FcP-tL-7DP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2o3-iL-QDj"/>
+                <constraint firstAttribute="trailing" secondItem="FcP-tL-7DP" secondAttribute="trailing" id="BZ8-89-kgV"/>
+                <constraint firstItem="NlC-yc-wiO" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="NAt-qc-rcW"/>
+                <constraint firstAttribute="bottom" secondItem="FcP-tL-7DP" secondAttribute="bottom" id="UqA-rh-yFe"/>
+                <constraint firstItem="LTW-5Q-NGL" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="a3w-gc-2n2"/>
+                <constraint firstItem="NlC-yc-wiO" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="qCU-Sd-t3Q"/>
+                <constraint firstItem="LTW-5Q-NGL" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="yaA-Xz-odp"/>
+            </constraints>
+            <size key="customSize" width="135" height="195"/>
+            <connections>
+                <outlet property="activityIndicator" destination="LTW-5Q-NGL" id="byN-zt-MTV"/>
+                <outlet property="avatarImageView" destination="NlC-yc-wiO" id="A4F-5q-cKe"/>
+                <outlet property="imageView" destination="FcP-tL-7DP" id="K25-ZX-RAU"/>
+            </connections>
+            <point key="canvasLocation" x="76" y="56"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="avatar.png" width="65" height="65"/>
+    </resources>
+</document>
