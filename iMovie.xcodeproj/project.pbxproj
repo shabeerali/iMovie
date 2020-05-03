@@ -48,6 +48,7 @@
 		5C8DA27A24561A4E00BBABCB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DA27924561A4E00BBABCB /* Constants.swift */; };
 		5C8DA27C24561A6100BBABCB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DA27B24561A6100BBABCB /* Extensions.swift */; };
 		5C8DA27E24561A7700BBABCB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DA27D24561A7600BBABCB /* Utility.swift */; };
+		5CF79508245F2F9900C28945 /* iMovieSlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF79507245F2F9900C28945 /* iMovieSlowTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		5C8DA27924561A4E00BBABCB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C8DA27B24561A6100BBABCB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5C8DA27D24561A7600BBABCB /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		5CF79507245F2F9900C28945 /* iMovieSlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMovieSlowTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 		5C8DA2442455FC8B00BBABCB /* iMovieTests */ = {
 			isa = PBXGroup;
 			children = (
+				5CF79507245F2F9900C28945 /* iMovieSlowTests.swift */,
 				5C8DA2452455FC8B00BBABCB /* iMovieTests.swift */,
 				5C8DA2472455FC8B00BBABCB /* Info.plist */,
 			);
@@ -578,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C8DA2462455FC8B00BBABCB /* iMovieTests.swift in Sources */,
+				5CF79508245F2F9900C28945 /* iMovieSlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
